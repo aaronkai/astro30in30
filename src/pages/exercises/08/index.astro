@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Draw on Canvas</title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <p>this</p>
+    <p>THAT</p>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>
+<script src={Astro.resolve("./test.ts")}></script>
+
+<!-- <script type="ts">
+  let x: number = 9;
+  console.log(x);
+
+  let canvas: Element = document.querySelector("#draw");
+  console.log({ canvas });
+</script> -->

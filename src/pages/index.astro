@@ -1,0 +1,31 @@
+---
+//import BaseLayout  from '../layouts/BaseLayout.astro'
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="JS Refresh" stylesheet="../styles/global.css">
+  <main class="grid items-center justify-center max-w-lg gap-8">
+    <h2 class="text-4xl">JS30in30</h2>
+    <p>
+      Shout out to JavaScript Hero Wes Bos for putting this content into the
+      world
+    </p>
+    <ul class="p-8 border-2 border-slate-700">
+      <li><a href="exercises/01/"> Exercise 1: Drum Kit </a></li>
+      <li><a href="exercises/02/"> Exercise 2: JS Clock </a></li>
+      <li><a href="exercises/03/"> Exercise 3: CSS Variables & JS</a></li>
+      <li><a href="exercises/04/"> Exercise 4: Array Cardio</a></li>
+      <li><a href="exercises/05/"> Exercise 5: Flex Panel Gallery</a></li>
+      <li><a href="exercises/06/"> Exercise 6: AJAX look-ahead</a></li>
+      <li><a href="exercises/07/"> Exercise 7: Array Cardio 2</a></li>
+      <li><a href="exercises/08/"> Exercise 8: Fun With Canvas</a></li>
+    </ul>
+
+    <h2 class="font-mono text-4xl capitalize">Sandbox for intro to CS</h2>
+    <p>Hey...look over in the console 👉</p>
+    <p>We've got some sandbox code over there.</p>
+    <p>Playing with linked lists, etc.</p>
+  </main>
+</BaseLayout>
+<script src={Astro.resolve("linkedList.ts")}></script>
+<script src={Astro.resolve("tree.ts")}></script>

@@ -1,0 +1,89 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<!DOCTYPE html>
+<BaseLayout title="JS Drumkit" stylesheet="../pages/exercises/01/style.css">
+  <div class="keys">
+    <div data-key="a" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="s" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="d" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="f" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="g" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="h" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="j" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="k" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="l" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="a" src={Astro.resolve("sounds/clap.wav")}></audio>
+  <audio data-key="s" src={Astro.resolve("sounds/hihat.wav")}></audio>
+  <audio data-key="d" src={Astro.resolve("sounds/kick.wav")}></audio>
+  <audio data-key="f" src={Astro.resolve("sounds/openhat.wav")}></audio>
+  <audio data-key="g" src={Astro.resolve("sounds/boom.wav")}></audio>
+  <audio data-key="h" src={Astro.resolve("sounds/ride.wav")}></audio>
+  <audio data-key="j" src={Astro.resolve("sounds/snare.wav")}></audio>
+  <audio data-key="k" src={Astro.resolve("sounds/tom.wav")}></audio>
+  <audio data-key="l" src={Astro.resolve("sounds/tink.wav")}></audio>
+
+  <script>
+    // add keydown listener to window. query the audio and control element that correspond to the key code.  play the sound and add playing class to the DOM element.
+
+    function playSound(e) {
+      console.log("key", e.key);
+      let keyPressed = e.key.toLowerCase();
+      const audio = document.querySelector(`audio[data-key="${keyPressed}"]`);
+      const key = document.querySelector(`div[data-key="${keyPressed}"]`);
+
+      //if the button pressed has no corresponding audio element, exit
+      if (!audio) return;
+
+      //reset the audio track in case you want to press rapidly.
+      audio.currentTime = 0;
+      audio.play();
+
+      // Add class of playing to the control of the playing audio. classList returns collection of 'class' attributes of element it is called on
+      key.classList.add("playing");
+    }
+    //we need to remove the playing class when the transition ends.
+    function removeTransition(e) {
+      if (e.propertyName != "transform") return; //looking for the end of the transform
+      //use transition event to remove class at the end of transition
+      this.classList.remove("playing");
+    }
+    // Get all controls. loop though them. Add transitionend listener, and run removeTransition funtion.
+    const keys = document.querySelectorAll(".key");
+
+    keys.forEach((key) =>
+      key.addEventListener("transitionend", removeTransition)
+    );
+    window.addEventListener("keydown", playSound);
+  </script>
+</BaseLayout>
