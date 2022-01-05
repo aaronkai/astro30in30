@@ -23,5 +23,5 @@ h3 {
 
 header a,
 .wrapper a {
-  @apply p-2 text-xl font-bold transition-all duration-300 ease-in-out text-cyan-500 underline-offset-4 decoration-dotted hover:text-emerald-500 hover:decoration-4;
+  @apply p-2 text-xl font-bold transition-all duration-300 ease-in-out text-cyan-500 underline-offset-4 hover:text-emerald-500 hover:decoration-4;
 }

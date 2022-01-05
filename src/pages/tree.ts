@@ -224,7 +224,7 @@ function miniMaxSum(array: number[]): void {
   let possibleAnswers: number[] = [];
   let answer: string = `${min} ${max}`;
 
-  for (let i = array.length; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     console.log(i);
     // const tempArray: number[] = array.filter((number, j) => {
     //     console.log(i,j);

@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <title>HTML Video Player</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href={Astro.resolve("./style.css")} />
   </head>
   <body>
     <div class="player">
-      <video class="player__video viewer" src="652333414.mp4"></video>
+      <video
+        class="player__video viewer"
+        src={Astro.resolve(
+          "/home/aaron/mediaArchive/blues_book_vids/2-19-001-09-0-01.mp4"
+        )}></video>
 
       <div class="player__controls">
         <div class="progress">
@@ -37,6 +41,6 @@
       </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src={Astro.resolve("./scripts.js")}></script>
   </body>
 </html>
