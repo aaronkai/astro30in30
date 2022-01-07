@@ -26,7 +26,7 @@
         box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
       }
 
-      #bands li {
+      #bands :global(li) {
         border-bottom: 1px solid #efefef;
         padding: 20px;
       }
@@ -41,24 +41,11 @@
       }
     </style>
 
-    <ul id="bands"></ul>
-
-    <script>
-      const bands = [
-        "The Plot in You",
-        "The Devil Wears Prada",
-        "Pierce the Veil",
-        "Norma Jean",
-        "The Bled",
-        "Say Anything",
-        "The Midway State",
-        "We Came as Romans",
-        "Counterparts",
-        "Oh, Sleeper",
-        "A Skylit Drive",
-        "Anywhere But Here",
-        "An Old Dog",
-      ];
-    </script>
+    <ul id="bands">
+      <li>test</li>
+    </ul>
   </body>
 </html>
+
+<script> </script>
+<script src={Astro.resolve("./sort.js")}></script>
