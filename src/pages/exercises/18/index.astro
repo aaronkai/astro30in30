@@ -65,6 +65,34 @@
       <li data-time="1:56">Video 57</li>
       <li data-time="4:04">Video 58</li>
     </ul>
-    <script></script>
+    <script>
+      const timeLis = Array.from(document.querySelectorAll("ul.videos > li"));
+      const times = timeLis.map((li) => {
+        return li.dataset.time;
+      });
+      console.log({ times });
+      const total = times.reduce(
+        (total, current) => {
+          const [currentHour, currentMin] = current.split(":");
+          total.hours += parseInt(currentHour);
+          total.minutes += parseInt(currentMin);
+          // console.log({ total });
+          return total;
+        },
+        { hours: 0, minutes: 0 }
+      );
+
+      function computeHours(timeObject) {
+        let hours = timeObject.hours;
+        let minutes = timeObject.minutes;
+        let addMinutes = minutes % 60;
+        let addHours = (minutes / 60) >> 0;
+        return { hours: hours + addHours, minutes: addMinutes };
+      }
+
+      const answer = computeHours(total);
+      console.log({ total });
+      console.log({ answer });
+    </script>
   </body>
 </html>
