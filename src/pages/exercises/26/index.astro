@@ -152,7 +152,6 @@
       nav ul {
         list-style: none;
         margin: 0;
-        padding: 0;
         display: flex;
         justify-content: center;
       }
@@ -170,18 +169,19 @@
         padding: 20px;
         top: -20px;
         border-radius: 2px;
-        transition: all 0.5s;
         transform: translateY(100px);
         will-change: opacity;
-        display: none;
+        display: flex;
       }
 
       .trigger-enter .dropdown {
         display: block;
+        transition: all 0.5s;
       }
 
       .trigger-enter-active .dropdown {
         opacity: 1;
+        transition: all 0s;
       }
 
       .dropdownBackground {
@@ -192,7 +192,7 @@
         border-radius: 4px;
         box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1),
           0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s, opacity 0.1s, transform 0.2s;
+        transition: all 0.3s, opacity 0.1s, transform 0.2s ease-out 0s;
         transform-origin: 50% 0;
         display: flex;
         justify-content: center;
@@ -238,6 +238,7 @@
       .dropdown a {
         text-decoration: none;
         color: #ffc600;
+        padding: 1rem;
       }
 
       a.button {
@@ -260,6 +261,6 @@
       }
     </style>
 
-    <script></script>
+    <script src={Astro.resolve("./script.js")}></script>
   </body>
 </html>

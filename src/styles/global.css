@@ -18,10 +18,14 @@ a {
 h1,
 h2,
 h3 {
-  @apply font-bold text-emerald-500;
+  @apply font-bold text-emerald-500 hover:skew-y-3;
 }
 
 header a,
 .wrapper a {
-  @apply p-2 text-xl font-bold transition-all duration-300 ease-in-out text-cyan-500 underline-offset-4 hover:text-emerald-500 hover:decoration-4;
+  @apply p-2 font-bold text-cyan-500 underline-offset-4 hover:text-emerald-500 hover:decoration-2 hover:skew-y-3;
+}
+
+.wrapper li {
+  @apply transition duration-100 ease-in-out hover:scale-105;
 }
