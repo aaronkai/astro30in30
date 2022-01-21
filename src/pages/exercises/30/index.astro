@@ -8,7 +8,7 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href={Astro.resolve("./style.css")} />
   </head>
   <body>
     <h1>Whack-a-mole! <span class="score">0</span></h1>
@@ -35,10 +35,6 @@
       </div>
     </div>
 
-    <script>
-      const holes = document.querySelectorAll(".hole");
-      const scoreBoard = document.querySelector(".score");
-      const moles = document.querySelectorAll(".mole");
-    </script>
+    <script src={Astro.resolve("./script.ts")}></script>
   </body>
 </html>

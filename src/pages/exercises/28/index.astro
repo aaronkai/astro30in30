@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Video Speed Scrubber</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href={Astro.resolve("./style.css")} />
   </head>
   <body>
     <div class="wrapper">
@@ -13,13 +13,12 @@
         height="430"
         src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
         loop
-        controls
-      ></video>
+        controls></video>
       <div class="speed">
         <div class="speed-bar">1×</div>
       </div>
     </div>
 
-    <script></script>
+    <script src={Astro.resolve("./script.ts")}></script>
   </body>
 </html>
